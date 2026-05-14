@@ -12,40 +12,33 @@ function App() {
   return ( 
     <table> 
       <tr>
-        <th>이름</th>
-        <th>국어</th>
-        <th>영어</th>
-        <th>수학</th>
-        <th>과학</th>
+      {
+        Object.keys(scores[0]).map(key => (
+      
+        <th>{key}</th>
+      
+        ))
+      }
       </tr>
+      {
+        scores.map(item => (
+          <tr>
+            {Object.values(item).map(value => (<td>{value}</td>))}
+          </tr>
+        ))
+      }
+      {/*
+        [0,1,2,3].map(idx => (
       <tr>
-        <td>{scores[0].이름}</td> 
-        <td>{scores[0].국어}</td>
-        <td>{scores[0].영어}</td>
-        <td>{scores[0].수학}</td>
-        <td>{scores[0].과학}</td>  
+        <td>{scores[idx].이름}</td> 
+        <td>{scores[idx].국어}</td>
+        <td>{scores[idx].영어}</td>
+        <td>{scores[idx].수학}</td>
+        <td>{scores[idx].과학}</td>  
       </tr>
-      <tr>
-        <td>{scores[1].이름}</td>
-        <td>{scores[1].국어}</td>
-        <td>{scores[1].영어}</td>
-        <td>{scores[1].수학}</td>
-        <td>{scores[1].과학}</td> 
-      </tr>
-      <tr>
-        <td>{scores[2].이름}</td>
-        <td>{scores[2].국어}</td>
-        <td>{scores[2].영어}</td>
-        <td>{scores[2].수학}</td>
-        <td>{scores[2].과학}</td> 
-      </tr>
-      <tr>
-        <td>{scores[3].이름}</td>
-        <td>{scores[3].국어}</td>
-        <td>{scores[3].영어}</td>
-        <td>{scores[3].수학}</td>
-        <td>{scores[3].과학}</td> 
-      </tr>
+        ))
+      */}
+      
     </table>
   )
 }
