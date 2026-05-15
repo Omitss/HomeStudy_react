@@ -1,45 +1,69 @@
 import { useState } from 'react'
 import './App.css'
 
-const scores = [ 
-  {이름 : "John", 국어: 90, 영어: 90, 수학:80, 과학 : 90}, // {}한줄 == row, 하나 하나가 object == 객체임
-  {이름 : "peter", 국어: 90, 영어: 90, 수학:80, 과학 : 90},
-  {이름 : "susan", 국어: 90, 영어: 90, 수학:80, 과학 : 90},
-  {이름 : "Sue", 국어: 90, 영어: 90, 수학:80, 과학 : 90}
-]
+const style = {
+  width: "500px", /*가로*/
+  height: "300px", /*세로*/
+  display: "flex", /*Flex 컨테이너로 만듭니다. 이제부터 내부 자식 요소들을 유연하게 정렬가능*/
+  flexDirection: "column", /*정렬방향 정하기 : col = 세로정렬*/
+  justifyContent: "center", /*자식요소 가로축 배치 : center정렬*/
+  alignItems: "center"/*자식요소 세로축 배치 : center정렬*/
+}
+
+
 
 function App() {
+  const handleChange = (event) =>{
+    console.log(event.target.name) //event.target 이란? 이벤트가 걸리고 있는 태그
+  }
   return ( 
-    <table> 
-      <tr>
-      {
-        Object.keys(scores[0]).map(key => (
-      
-        <th>{key}</th>
-      
-        ))
-      }
-      </tr>
-      {
-        scores.map(item => (
-          <tr>
-            {Object.values(item).map(value => (<td>{value}</td>))}
-          </tr>
-        ))
-      }
-      {/*
-        [0,1,2,3].map(idx => (
-      <tr>
-        <td>{scores[idx].이름}</td> 
-        <td>{scores[idx].국어}</td>
-        <td>{scores[idx].영어}</td>
-        <td>{scores[idx].수학}</td>
-        <td>{scores[idx].과학}</td>  
-      </tr>
-        ))
-      */}
-      
-    </table>
+
+    // 현 화면 상태
+    // 표출은 되나 입력이 안되는 상태
+     <form>
+      <div>이름: 
+        <input 
+          type="text" 
+          name="이름" 
+          value=""
+          onChange={handleChange}
+          />
+      </div>
+      <div>국어: 
+        <input 
+          type="number" 
+          name="국어" 
+          value="" 
+          onChange={handleChange}
+        />
+      </div>
+      <div>영어: 
+        <input 
+          type="number" 
+          name="영어" 
+          value="" 
+          onChange={handleChange}
+        />
+      </div>
+      <div>수학: 
+        <input 
+          type="number" 
+          name="수학" 
+          value="" 
+          onChange={handleChange}
+          />
+      </div>
+      <div>과학: 
+        <input 
+          type="number" 
+          name="과학" 
+          value="" 
+          onChange={handleChange}
+        />
+        </div>
+      <button>제출</button>
+    </form>
+
   )
 }
 
